@@ -11,8 +11,7 @@ class Camera;
 
 class Renderer : public Visitor<Renderer, MeshComponent> {
 public:
-    Renderer(Camera& camera, uint32_t width, uint32_t height,
-             Shader& shader);
+    Renderer(Camera& camera, uint32_t width, uint32_t height);
 
     void operator()(MeshComponent& component);
 
@@ -23,8 +22,6 @@ private:
     Camera&             camera_;
     uint32_t            width_;
     uint32_t            height_;
-
-    Shader&  shader_;
 };
 
 

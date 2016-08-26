@@ -5,6 +5,9 @@
 #include <SFML/Window.hpp>
 
 #include "Scene.hpp"
+#include "Shader.hpp"
+#include "TransformationVisitor.hpp"
+#include "Renderer.hpp"
 
 
 class App {
@@ -14,7 +17,19 @@ public:
     void loop(void);
 
 private:
-    sf::Window&  _window;
+    sf::Window& _window;
+
+    Shader      _shader;
+    Mesh        _mesh;
+
+    NodeId      _node;
+
+    Camera      _camera;
+    TransformationVisitor _transVisitor;
+    Renderer    _renderer;
+
+    Canvas      _canvas;
+    double      _time;
 };
 
 

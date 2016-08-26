@@ -22,18 +22,18 @@ Canvas::Canvas(void) {
     glBindVertexArray(0);
 }
 
-void Canvas::draw(Shader& shader, Texture& tex1, Texture& tex2) const {
+void Canvas::draw(Shader& shader/*, Texture& tex1, Texture& tex2*/) const {
     glBindVertexArray(_vertexArrayId);
 
     shader.use();
-
+/*
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, tex1);
     glUniform1i(glGetUniformLocation(shader, "tex1"), 0);
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, tex2);
     glUniform1i(glGetUniformLocation(shader, "tex2"), 1);
-
+*/
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
 	glBindVertexArray(0);

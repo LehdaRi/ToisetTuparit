@@ -202,7 +202,7 @@ void Mesh::render(const Shader& shader, const Camera& camera, const Vector3Glf& 
 
 void Mesh::draw(void) {
     glBindVertexArray(vertexArrayObjectId_);
-	glDrawElements(GL_TRIANGLES, nIndices_, GL_UNSIGNED_INT, (void*)0);
+	glDrawElements(GL_TRIANGLES, nIndices_, GL_UNSIGNED_INT, (GLvoid*)0);
 	glBindVertexArray(0);
 }
 

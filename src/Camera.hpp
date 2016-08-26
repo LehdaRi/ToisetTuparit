@@ -10,7 +10,8 @@ class Camera {
 public:
     Camera(float fov, float aspectRatio, float near, float far);
 
-    void lookAt(const Vector3f& from, const Vector3f& to, const Vector3f& up);
+    void lookAt(const Vector3f& from, const Vector3f& to,
+                const Vector3f& up = Vector3Glf{0.0f, 1.0f, 0.0f});
     void projection(float fov, float aspectRatio, float near, float far);
 
     void moveLocal(const Vector3f& m);

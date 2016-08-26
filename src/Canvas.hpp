@@ -23,7 +23,7 @@ class Canvas {
 public:
     Canvas(void);
 
-    void draw(Shader& shader, Texture& tex1, Texture& tex2) const;
+    void draw(Shader& shader/*, Texture& tex1, Texture& tex2*/) const;
 
 private:
     GLuint _vertexArrayId;
