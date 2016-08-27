@@ -2,6 +2,8 @@
 #include <cmath>
 
 #include "FFTVisitor.hpp"
+#include "TransformationComponent.hpp"
+#include "MathTypes.hpp"
 #include "kiss_fftr.h"
 
 
@@ -39,12 +41,15 @@ void FFTVisitor::operator()(FFTComponent& component)
     if((cfg = kiss_fftr_alloc(_fourierSize, 0, NULL, NULL)) != NULL) {
         kiss_fftr(cfg, in, out);
         free(cfg);
-        float amplitude = sqrt(pow(out[20].r, 2) + pow(out[20].i, 2));
+        std::size_t bin = 0;
+        float amplitude = sqrt(pow(out[bin].r, 2) + pow(out[bin].i, 2));
         //std::cout << out[1].r << " " << out[1].i << " " << amplitude << std::endl;
-        for(std::size_t i = 0; i < amplitude*200/6292690; ++i) {
+        auto& tc = component._node.ref().getComponent<TransformationComponent>();
+        tc.rotateY(amplitude*PI/6292690);
+        /*for(std::size_t i = 0; i < amplitude*200/6292690; ++i) {
         	std::cout << "#";
-    	}
-    	std::cout << std::endl;
+    	}*/
+    	//std::cout << std::endl;
         if(amplitude > _max) _max = amplitude;
 
         /*
