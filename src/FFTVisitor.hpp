@@ -20,7 +20,6 @@ private:
     std::size_t _fourierSize;
     unsigned _sampleRate;
     sf::Sound _sound;
-    float _max;
 };
 
 #endif
