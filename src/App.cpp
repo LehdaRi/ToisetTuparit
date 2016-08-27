@@ -42,7 +42,7 @@ void App::loop(void) {
         SCENE(_transVisitor);
         SCENE(_renderer);
 
-        _camera.lookAt(Vector3Glf{10.0*sin(_time), 5.0f, 10.0*cos(_time)}, Vector3Glf{0.0f, 0.0f, 0.0f});
+        _camera.lookAt(Vector3Glf{10.0*sin(_time*0.2), 5.0f, 10.0*cos(_time*0.2)}, Vector3Glf{0.0f, 0.0f, 0.0f});
 
         _window.display();
 
