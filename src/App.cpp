@@ -1,6 +1,7 @@
 #include "App.hpp"
 #include "MeshComponent.hpp"
 #include "TransformationComponent.hpp"
+#include "FFTComponent.hpp"
 
 
 App::App(sf::Window& window) :
@@ -8,6 +9,7 @@ App::App(sf::Window& window) :
     _shader("shaders/VS_Simple.glsl", "shaders/FS_Simple.glsl"),
     _camera(90, 16.0/9.0, 0.1f, 100.0f),
     _renderer(_camera, 1920, 1080),
+    _fftVisitor("sweep.wav"),
     _time(0.0)
 {
     _camera.lookAt(Vector3Glf{0.0f, 5.0f, 10.0f}, Vector3Glf{0.0f, 0.0f, 0.0f});
@@ -18,6 +20,7 @@ App::App(sf::Window& window) :
     _node = SCENE.addNode();
     SCENE.addComponent<MeshComponent>(_node, _node, &_mesh, &_shader);
     SCENE.addComponent<TransformationComponent>(_node, NodeId());
+    SCENE.addComponent<FFTComponent>(_node, NodeId());
 
 }
 
@@ -28,6 +31,7 @@ void App::loop(void) {
 
         SCENE(_transVisitor);
         SCENE(_renderer);
+        SCENE(_fftVisitor);
 
         _camera.lookAt(Vector3Glf{10.0*sin(_time*100), 5.0f, 10.0*cos(_time*100)}, Vector3Glf{0.0f, 0.0f, 0.0f});
 

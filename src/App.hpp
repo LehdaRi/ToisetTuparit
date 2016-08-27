@@ -8,6 +8,7 @@
 #include "Shader.hpp"
 #include "TransformationVisitor.hpp"
 #include "Renderer.hpp"
+#include "FFTVisitor.hpp"
 
 
 class App {
@@ -30,6 +31,8 @@ private:
 
     Canvas      _canvas;
     double      _time;
+
+    FFTVisitor _fftVisitor;
 };
 
 

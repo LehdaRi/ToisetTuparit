@@ -5,13 +5,11 @@
 
 
 Shader::Shader(const std::string& vsFileName, const std::string& fsFileName) {
-	FILE* vsf;
-	fopen_s(&vsf, vsFileName.c_str(), "rb");
+	FILE* vsf = fopen(vsFileName.c_str(), "rb");
 	if (!vsf)
 		fprintf(stderr, "Unable to open vertex shader from file\n", vsFileName.c_str());
 
-	FILE* fsf;
-	fopen_s(&fsf, fsFileName.c_str(), "rb");
+	FILE* fsf = fopen(fsFileName.c_str(), "rb");
 	if (!fsf)
 		fprintf(stderr, "Unable to open fragment shader from file\n", vsFileName.c_str());
 
