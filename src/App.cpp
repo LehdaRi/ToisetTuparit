@@ -7,7 +7,7 @@ App::App(sf::Window& window) :
     _window(window),
     _shader("shaders/VS_Simple.glsl", "shaders/FS_Simple.glsl"),
     _camera(90, 16.0/9.0, 0.1f, 100.0f),
-    _renderer(_camera, 1920, 1080),
+    _renderer(_camera, 1280, 720),
     _time(0.0)
 {
     _camera.lookAt(Vector3Glf{0.0f, 5.0f, 10.0f}, Vector3Glf{0.0f, 0.0f, 0.0f});

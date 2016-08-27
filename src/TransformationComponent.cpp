@@ -5,20 +5,15 @@
 using namespace Eigen;
 
 
-std::default_random_engine TransformationComponent::r__;
-
-
 TransformationComponent::TransformationComponent(const NodeId& parent, const Matrix4f& m) :
     parent_((parent && parent.ref().hasComponent<TransformationComponent>()) ? parent : NodeId()),
-    m_  (m),
-    s_  {(r__()%10000)*0.000628318531, (r__()%10000)*0.000628318531, (r__()%10000)*0.000628318531}
+    m_  (m)
 {}
 
 TransformationComponent::TransformationComponent(const NodeId& parent,
                                                  const TransformationComponent& other) :
     parent_((parent && parent.ref().hasComponent<TransformationComponent>()) ? parent : NodeId()),
-    m_  (other.m_),
-    s_  {other.s_[0], other.s_[1], other.s_[2]}
+    m_  (other.m_)
 {}
 
 void TransformationComponent::reset(void) {

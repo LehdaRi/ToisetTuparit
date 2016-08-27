@@ -13,7 +13,6 @@ class TransformationComponent : public ComponentBase {
 public:
     friend class TransformationVisitor;
     friend class Renderer;
-    friend class SpotlightRenderer;
 
     TransformationComponent(const NodeId& parent,
                             const Eigen::Matrix4f& m = Eigen::Matrix4f::Identity());
@@ -31,10 +30,6 @@ private:
     NodeId parent_;
     Eigen::Matrix4f m_;
     Eigen::Matrix4f mCumulative_;
-
-    //
-    static std::default_random_engine r__;
-    double s_[3];
 };
 
 
