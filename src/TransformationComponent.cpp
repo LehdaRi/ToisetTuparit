@@ -16,6 +16,10 @@ TransformationComponent::TransformationComponent(const NodeId& parent,
     m_  (other.m_)
 {}
 
+void TransformationComponent::set(const Eigen::Matrix4f& m) {
+    m_ = m;
+}
+
 void TransformationComponent::reset(void) {
     m_ = Matrix4f::Identity();
 }

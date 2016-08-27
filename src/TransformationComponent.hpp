@@ -19,6 +19,7 @@ public:
     TransformationComponent(const NodeId& parent,
                             const TransformationComponent& other);
 
+    void set       (const Eigen::Matrix4f& m);
     void reset     (void);
     void translate (const Eigen::Vector3f& v);
     void rotateY   (float angle);

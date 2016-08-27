@@ -8,6 +8,8 @@
 #include "Shader.hpp"
 #include "TransformationVisitor.hpp"
 #include "Renderer.hpp"
+#include "PhysicsWorld.hpp"
+#include "PhysicsVisitor.hpp"
 
 
 class App {
@@ -16,20 +18,23 @@ public:
 
     void loop(void);
 
+    void addFridge(const Vector3Glf& pos);
+
 private:
-    sf::Window& _window;
+    sf::Window&             _window;
 
-    Shader      _shader;
-    Mesh        _mesh;
+    Shader                  _shader;
+    Mesh                    _mesh;
+    PhysicsWorld            _physicsWorld;
 
-    NodeId      _node;
+    NodeId                  _groundNode;
 
-    Camera      _camera;
-    TransformationVisitor _transVisitor;
-    Renderer    _renderer;
+    Camera                  _camera;
+    TransformationVisitor   _transVisitor;
+    PhysicsVisitor          _physVisitor;
+    Renderer                _renderer;
 
-    Canvas      _canvas;
-    double      _time;
+    double                  _time;
 };
 
 
